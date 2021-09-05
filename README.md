@@ -1,64 +1,11 @@
 # Dotfiles
 
-Managed via [YADM](https://github.com/TheLocehiliosan/yadm) and nix
 
 ## Installation
 
 **Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails.
 
 ## Install
-
-### MacOS
-
-Install homebrew
-```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-Install Xcode CLI
-```sh
-xcode-select --install
-```
-Install YADM
-```sh
-brew install yadm
-```
-Clone the repo and install it
-```sh
-yadm clone https://github.com/shaunsingh/vimrc-dotfiles.git --no-bootstrap
-yadm bootstrap
-yadm remote add origin https://github.com/shaunsingh/vimrc-dotfiles.git
-```
-
-**Note:** You may have to chmod the files
-```sh
-cd ~/.config/yadm
-chmod +x *.sh
-chmod +x bootstrap.d/*.sh
-```
-
-### nixOS
-
-**Note** This is more of a note for myself for when I install on linux machines. I am quite new to nixos, and I recommend you check over my config before installing it. The config also uses wayland+sway, so it may be incompatible with certain gpus
-
-Install via flakes
-```zsh
-nix-shell -p nixUnstable git
-nixos-install --flake https://github.com/shaunsingh/vimrc-dotfiles#shaunsingh-laptop
-```
-
-Clone the dotiles
-```zsh
-yadm clone https://github.com/shaunsingh/vimrc-dotfiles.git --no-bootstrap
-yadm remote add origin https://github.com/shaunsingh/vimrc-dotfiles.git
-```
-
-## Notes and additional configuration
-
-On macOS, all the prerequisites should be automatically installed. On Linux, make sure you have a package manager, as well as git installed.
-
-Note: Brew will install the native-compilation version of emacs-plus, but it may be buggy on certain machines and configurations. You can install emacs-mac if you want emacs27 instead. Brew will also install the developer branch of neovim (`nvim 0.6`), you can use neovim 0.5 (stable) but I can't garuntee if it works.
-
-For linux users, either install `emacs` (emacs 27) or [recommended] `emacs-pgtk-native-comp` (emacs 28) via your package manager of choice.
 
 ### Fonts
 Emacs uses 3 fonts not installed by default. Menlo, Liga SF Mono (nerd font) and SF Pro. Although homebrew should handle the installation process, you can reinstall them if nessecary
@@ -69,16 +16,6 @@ On linux, you will have to install 3 fonts
 1. Fira SFMono Nerd Font (https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized)
 2. SF Pro
 3. IBM Plex Sans
-
-### Fish
-
-Fish doesn't detect homebrew by default. You can enable homebrew under fish by running either
-
-`set -U fish_user_paths /usr/local/bin $fish_user_paths`
-
-or for Apple Silicon macs
-
-`set -U fish_user_paths /opt/homebrew/bin $fish_user_paths`
 
 
 ### Emacs
@@ -110,34 +47,6 @@ You may get errors due to missing fonts on linux. In which case either switch th
 ```
 
 (and adjust the serif writeroom font, from SF Pro to DejaVu Sans)
-
-#### Mu4e and Gmail
-Email will have a few issues, since its hardcoded to my account and my machines path. Do the following steps to get email up and running for you
-
-**Note:** ~/.mbsyncrc isn't included anymore since I find it didn't make much sense too. You can find more info about making your own here: https://github.com/hlissner/doom-emacs/blob/develop/modules/email/mu4e/README.org
-
-1. modify `~/.mbsyncrc` to include your email and password
-2. replace instances of my name and email in `~/.doom.d/config.org`
-3. replace the path to `msmtp` in `~/.doom.d/config.org` if you have an intel mac
-4. Rerun the following commands, replace the example with your email:
-
-```zsh
-mu init --maildir=~/.mbsync --my-address=email@example.org
-mu index
-mbsync --all
-```
-
-Indexed mail will go under `~/.mbsync/`, you can either manually mbsync or use emacs to update mail
-
-### Org Mode
-
-**Note:** If you run my install script, it clones my notes repo, you can either delete it, ignore it, or borrow my notes if you would like.
-
-My org mode config includes two additional plugins, org-agenda and org-roam. Both these plugins need a set directory.
-
-All org files can go under the created `~/org` dir. Roam files go under `~/org/roam`
-
-The install script creates two files for my agenda, `school.org` and `work.org`. You can edit them to your liking
 
 ### Neovim
 

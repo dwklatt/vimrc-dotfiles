@@ -3,11 +3,8 @@
     font-family: Liga SFMono Nerd Font;
     padding-bottom: 1px;
     padding-top: 1px;
-    font-size: 11px;
+    font-size: 12px;
     min-height: 0;
-
-    /* border: 10px solid transparent;
-    border-image: url(~/.config/sway/borders/dropShadowDarkOffset2.png) 30 stretch; */
 }
 
 window#waybar {
@@ -22,7 +19,7 @@ tooltip {
 	border-width: 2px;
 	border-style: solid;
 	border-color: #2a2e38;
-	}
+}
 
 #workspaces button {
     padding: 5px 10px;
@@ -56,13 +53,11 @@ tooltip {
 
 #workspaces {
 	background-color: #2a2e38;
-	border-radius: 15px 0px 0px 15px;
+	border-radius: 15px 15px 15px 15px;
 }
 
 #clock {
     color: #FCCE7B;
-    border-radius: 0px 15px 15px 0px;
-    margin-right: 10px;
 }
 
 #battery {
@@ -80,9 +75,16 @@ tooltip {
 
 #network {
 	color: #C57BDB;
-	border-radius: 0px 0px 0px 0px;
+	border-radius: 15px 0px 0px 15px;
 }
 
 #pulseaudio {
 	color: #4db5bd;
+}
+#custom-power {
+	background-color: #2a2e38;
+	border-radius: 0px 15px 15px 0px;
+	padding-right: 15px;
+	margin: 5px 0px;
+	margin-right: 10px;
 }

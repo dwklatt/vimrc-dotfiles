@@ -7,3 +7,4 @@ layer=overlay
 insensitive=true
 content_halign=center
 prompt=
+_JAVA_AWT_WM_NONREPARENTING=1
