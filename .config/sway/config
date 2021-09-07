@@ -22,6 +22,7 @@ set $editor emacs
 # Your preferred browser
 set $browser firefox
 
+# add _JAVA_AWT_WM_NONREPARENTING=1?
 set $menu wofi --show=run --hide-scroll | xargs swaymsg exec --
 
 # Wallpaper
@@ -59,6 +60,9 @@ bindsym $mod+x exec $lock_path
 
     # Start your editor
     bindsym $mod+e exec $editor
+
+    # Intellij test
+    bindsym $mod+Shift+d exec _JAVA_AWT_WM_NONREPARENTING=1 intellij-idea-community
 
     # Start your browser
     bindsym $mod+d exec $browser
