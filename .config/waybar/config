@@ -1,6 +1,7 @@
 {
   "position": "bottom",
   "height": 50,
+  "modules-left": ["memory","cpu","temperature"],
   "modules-center": ["sway/workspaces"], 
   "modules-right": ["network", "pulseaudio", "clock", "custom/power"],
   "sway/workspaces": {
@@ -32,7 +33,8 @@
   },
   "clock": {
     "format": "{:%H:%M} ",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "korganizer"
   },
   "network": {
     //"interface": "wlp8s0",
@@ -60,5 +62,15 @@
     "format": "",
     "interval": "once",
     "on-click": "~/.config/scripts/wofi-power.sh"
+  },
+  "cpu": {
+    "tooltip": false,
+    "on-click": "systemmonitor",
+    "format": " {}%"
+  },
+  "memory": {
+    "tooltip": false,
+    "on-click": "systemmonitor",
+    "format": "力 {}%"
   }
 }

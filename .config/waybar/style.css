@@ -45,7 +45,7 @@ tooltip {
 	border-radius: 15px;
 }
 
-#clock, #battery, #pulseaudio, #network, #workspaces {
+#clock, #battery, #pulseaudio, #network, #workspaces, #memory, #cpu, #temperature {
 	background-color: #2a2e38;
 	padding: 5px 10px;
 	margin: 5px 0px;
@@ -64,24 +64,16 @@ tooltip {
     color: #7bc275;
 }
 
-#battery.charging {
-    color: #7bc275;
-}
-
-#battery.warning:not(.charging) {
-    background-color: #2a2e38;
-    color: #FCCE7B;
-}
-
-#network {
+#network, #memory {
 	color: #C57BDB;
 	border-radius: 15px 0px 0px 15px;
+	margin-left: 10px;
 }
 
 #pulseaudio {
 	color: #4db5bd;
 }
-#custom-power {
+#custom-power, #temperature {
 	background-color: #2a2e38;
 	border-radius: 0px 15px 15px 0px;
 	padding-right: 15px;
